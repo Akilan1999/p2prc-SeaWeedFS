@@ -1,0 +1,7 @@
+
+Author: Akilan Selvacoumar 
+Email: me@akilan.io 
+
+The following plugin allows a user to run SeaweedFS master node. 
+This is based on the following implementation:
+- https://github.com/chrislusf/seaweedfs 
