@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+
+  tasks:
+    - name: creates a copy of a new file 
+      ansible.builtin.copy:
+        src: /home/akilan/Documents/decenode/backend/plugin/deploy/Akilan1999_p2prc-SeaWeedF/weed
+        dest: /home/master/weed
+     
+    - name: making weed a executable 
+      shell: chmod +x ./weed 
+      async: 2592000               # 60*60*24*30 – 1 month (This will keep the following command running for a month
+      poll: 0
+
+    - name: start seaweedfs filesystem master node
+      shell: sudo ./weed.run master -port {{index . 0}}
+      async: 2592000               # 60*60*24*30 – 1 month (This will keep the following command running for a month
+      poll: 0
